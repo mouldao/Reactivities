@@ -46,6 +46,18 @@ namespace _API
             { 
                 opt.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
+              services.AddCors(options =>
+            {
+                options.AddPolicy(name: "CorsPolicy",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod()
+                                            .AllowCredentials();
+                        //builder.AllowAnyOrigin();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +73,7 @@ namespace _API
             // app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("CorsPolicy");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
