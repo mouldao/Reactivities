@@ -33,7 +33,7 @@ selectedActivity, cancelSelectActivity,editMode,openForm,closeForm,createOrEdit,
                     cancelSelectActivity={cancelSelectActivity} 
                     openForm={openForm}
                     deleteActivity={deleteActivity}
-                    />}
+                    />} 
             {editMode && 
             <ActivityForm closeForm={closeForm} activity={selectedActivity} createOrEdit={createOrEdit} />
             }
