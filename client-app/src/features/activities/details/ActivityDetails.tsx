@@ -23,7 +23,7 @@ const ActivityDetails = ({activity,cancelSelectActivity,openForm,deleteActivity}
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-        <Button.Group widths='3'>
+        <Button.Group widths='3'> 
             <Button onClick={()=> openForm(activity.id)} basic color='blue'content='Edit'/>
             <Button onClick={()=>deleteActivity(activity.id)} basic color='red'content='Delete'/> 
             <Button onClick={cancelSelectActivity} basic color='grey'content='Cancel'/>
