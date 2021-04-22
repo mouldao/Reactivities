@@ -37,7 +37,7 @@ selectedActivity, cancelSelectActivity,editMode,openForm,closeForm,createOrEdit,
             {editMode && 
             <ActivityForm closeForm={closeForm} activity={selectedActivity} createOrEdit={createOrEdit} />
             }
-            </Grid.Column>  
+            </Grid.Column>    
         </Grid>
        
 
