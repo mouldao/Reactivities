@@ -1,11 +1,8 @@
-// import {action, makeAutoObservable, makeObservable,observable, runInAction} from 'mobx'
 import {makeAutoObservable, runInAction} from 'mobx'
 import agent from '../api/agent';
 import { Activity } from '../models/Activities';
 import {v4 as uuid}  from 'uuid';
 export default class ActivityStore{
-    // title = "MOBX EXAMPLE!"
-    // activities: Activity[] = [];
     activityRegistry = new Map<string,Activity>()
     selectedActivity: Activity | undefined = undefined;
     loading =false;
@@ -14,11 +11,6 @@ export default class ActivityStore{
 
     constructor(){
        makeAutoObservable(this)
-    //    makeObservable(this,{
-    //         title:observable,
-    //         setTitle: action
-    //    })
-
     }
 
     get activitiesByDate (){
@@ -31,7 +23,6 @@ export default class ActivityStore{
         
             activities.forEach(activity => {
             activity.date = activity.date.split('T')[0]
-            // this.activities.push(activity);
             this.activityRegistry.set(activity.id,activity)
             })
             this.setLoadingInitial(false)
@@ -48,7 +39,6 @@ export default class ActivityStore{
 
     selectActivity = (id: string)=>{
           this.selectedActivity = this.activityRegistry.get(id);
-        // this.selectedActivity = this.activities.find((item)=> item.id === id)
     }
 
     cancelActivity = ()=>{
@@ -69,7 +59,6 @@ export default class ActivityStore{
         try{
             await agent.Activities.create(activity);
             runInAction (()=>{
-                // this.activities.push(activity);
                 this.activityRegistry.set(activity.id,activity)
                 this.selectedActivity = activity;
                 this.editMode = false;
@@ -89,7 +78,6 @@ export default class ActivityStore{
             await agent.Activities.update(activity);
             runInAction (()=>{
                 this.activityRegistry.set(activity.id,activity)
-                // this.activities = [...this.activities.filter((item)=> item.id !== activity.id),activity]
                 this.selectedActivity = activity;
                 this.editMode = false;
                 this.loading = false
@@ -107,7 +95,6 @@ export default class ActivityStore{
         try{
              await agent.Activities.delete(id);
             runInAction(()=>{
-                // this.activities = [...this.activities.filter((item)=> item.id !== id)]
                 this.activityRegistry.delete(id);
                 this.loading=false;
                 if ( this.selectedActivity?.id === id){  this.cancelActivity() };
@@ -118,31 +105,5 @@ export default class ActivityStore{
                 this.loading=false ;
             })
         }
-    }
-    // setTitle = ()=> {
-    //     this.title= this.title + '!'
-    // } 
-    // loadActivites = ()=>{
-    //     this.loadingInitial = true;
-    // }
-    //   loadActivites = async ()=>{
-    //     this.loadingInitial = true;
-    //     try{
-    //         const activities = await agent.Activities.list();
-    //     runInAction(()=>{
-    //         activities.forEach(activity => {
-    //         activity.date = activity.date.split('T')[0]
-    //         this.activities.push(activity);
-    //     })
-    //     })
-    //        this.loadingInitial = false;
-    //     }catch(error){
-    //         console.log(error)
-    //          runInAction(()=>{
-    //         this.loadingInitial = false;
-    //         })
-    //     }
-    // }
-
-   
+    }  
 } 

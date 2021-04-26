@@ -25,9 +25,7 @@ const ActivityForm = () =>
     
 
     const [activity,setActivity] = useState(initialState);
-    // useEffect(()=>{
-    //   setActivity(initialState)
-    // },[selectedActivity])
+
     function handleSubmit(){
        activity.id ? updateActivity(activity) : createActivity(activity)
     }

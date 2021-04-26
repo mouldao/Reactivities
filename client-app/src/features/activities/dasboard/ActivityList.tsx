@@ -2,11 +2,7 @@ import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
 import { useStore } from '../../../App/Stores/store';
-// interface Props{
-//     activities:Activity[],
-//     selectActivity: (id:string)=> void
-// }
-//  const ActivityList = ({activities,selectActivity}:Props)=>{
+
  const ActivityList = ()=>{
      const {activityStore} = useStore();
     return(
