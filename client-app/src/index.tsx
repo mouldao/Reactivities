@@ -4,10 +4,14 @@ import './App/Layout/styles.css';
 import App from './App/Layout/App';
 import 'semantic-ui-css/semantic.min.css'
 import reportWebVitals from './reportWebVitals';
+import { StoreContext, store } from './App/Stores/store';
+
 
 ReactDOM.render(
 //   <React.StrictMode>
+<StoreContext.Provider value={store}>
     <App />
+ </StoreContext.Provider>
 //   </React.StrictMode>
   ,
   document.getElementById('root')

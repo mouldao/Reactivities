@@ -1,15 +1,18 @@
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
-import { Activity } from '../../../App/modules/Activities';
-interface Props{
-    activities:Activity[],
-    selectActivity: (id:string)=> void
-}
- const ActivityList = ({activities,selectActivity}:Props)=>{
+import { useStore } from '../../../App/Stores/store';
+// interface Props{
+//     activities:Activity[],
+//     selectActivity: (id:string)=> void
+// }
+//  const ActivityList = ({activities,selectActivity}:Props)=>{
+ const ActivityList = ()=>{
+     const {activityStore} = useStore();
     return(
         <Segment>
             <Item.Group divided>
-                {activities.map(activity=>( 
+                {activityStore.activitiesByDate.map(activity=>( 
                     <Item key ={activity.id}>
                         <Item.Content>
                             <Item.Header as ="a">{activity.title}</Item.Header>
@@ -19,7 +22,7 @@ interface Props{
                                   <div>{activity.city}{activity.venue}</div>
                               </Item.Description>
                               <Item.Extra>
-                                  <Button onClick={()=> selectActivity(activity.id)} floated='right' content='View' color='blue'/>
+                                  <Button onClick={()=> activityStore.selectActivity(activity.id)} floated='right' content='View' color='blue'/>
                                   <Label basic content={activity.category} />
                               </Item.Extra>
                         </Item.Content>
@@ -31,4 +34,4 @@ interface Props{
 
 }
 
-export default ActivityList
+export default observer(ActivityList)

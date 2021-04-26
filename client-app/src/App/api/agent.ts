@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { request } from 'http';
-import { Activity } from '../modules/Activities';
+import { Activity } from '../models/Activities';
 
 const sleep = (delay: number)=>{
     return new Promise((resolve)=>{
