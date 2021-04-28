@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios'
-import { request } from 'http';
 import { Activity } from '../models/Activities';
 
 const sleep = (delay: number)=>{
@@ -30,7 +29,6 @@ axios.interceptors.response.use(async response =>{
 // })
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
-
 const requests ={
     get: <T> (url:string) => axios.get<T>(url).then(responseBody),
     post: <T>(url:string, body:{}) => axios.post<T>(url,body).then(responseBody),

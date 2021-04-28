@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Item, Label, Segment } from 'semantic-ui-react';
 import { useStore } from '../../../App/Stores/store';
 
@@ -18,7 +19,7 @@ import { useStore } from '../../../App/Stores/store';
                                   <div>{activity.city}{activity.venue}</div>
                               </Item.Description>
                               <Item.Extra>
-                                  <Button onClick={()=> activityStore.selectActivity(activity.id)} floated='right' content='View' color='blue'/>
+                                  <Button as={Link} to={`activities/${activity.id}`} floated='right' content='View' color='blue'/>
                                   <Label basic content={activity.category} />
                               </Item.Extra>
                         </Item.Content>
