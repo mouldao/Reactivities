@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Grid} from 'semantic-ui-react';
 import LoadingComponent from '../../../App/Layout/LoadingComponent';
 import { useStore } from '../../../App/Stores/store';
-
+import ActivityFilters from './ActivityFIlters';
 import ActivityList from './ActivityList';
 
 export default observer(function ActivityDashboard()
@@ -23,7 +23,7 @@ if (activityStore.loadingInitial){ return <LoadingComponent content="Loading APP
                <ActivityList />
             </Grid.Column>
              <Grid.Column width='6'>
-                <h2>Activity Filters</h2>
+               <ActivityFilters/>
             </Grid.Column>    
         </Grid>
        

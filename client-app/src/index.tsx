@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './App/Layout/styles.css';
 import App from './App/Layout/App';
 import 'semantic-ui-css/semantic.min.css'
+import 'react-calendar/dist/Calendar.css'
 import reportWebVitals from './reportWebVitals';
 import { StoreContext, store } from './App/Stores/store';
 import { BrowserRouter } from 'react-router-dom';
