@@ -12,7 +12,7 @@ import ActivityDetailedInfo from './ActivityDetailedInfo';
 import ActivtyDetailedSidebar from './ActivityDetailedSidebar';
 
 const ActivityDetails = ()=>{
-    const {activityStore} = useStore();
+     const {activityStore} = useStore();
     // const [,setTarget] =  useState('');
     // const {selectedActivity: activity, deleteActivity,loadActivity, loadingInitial} = activityStore;
         const {selectedActivity: activity,loadActivity, loadingInitial} = activityStore;

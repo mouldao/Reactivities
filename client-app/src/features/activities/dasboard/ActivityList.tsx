@@ -8,7 +8,7 @@ import ActivityListItem from './ActivityListItem';
  const ActivityList = ()=>{
      const {activityStore} = useStore();
      const {groupedActivites} = activityStore;
-debugger
+
 
     return(
         <>
