@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Application.Activities;
 using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Persistence;
 
 namespace _API.Controllers
 {
+   
     public class ActivitiesController : BaseApiController
     {
         private readonly DataContext _context;
@@ -17,7 +19,7 @@ namespace _API.Controllers
         //     _mediator = mediator;
 
         // }
-
+        
         [HttpGet]
         public async Task<IActionResult> GetActivities()
         {
@@ -30,6 +32,7 @@ namespace _API.Controllers
         //     return await Mediator.Send(new List.Query(),ct);
         // }
         // public async Task<ActionResult<Activity>> GetActivity(Guid id)
+        // [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetActivity(Guid id)
         {
