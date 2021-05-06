@@ -9,10 +9,10 @@ using Persistence;
 
 namespace _API.Controllers
 {
-   
+   [AllowAnonymous]
     public class ActivitiesController : BaseApiController
     {
-        private readonly DataContext _context;
+        // private readonly DataContext _context;
         // private readonly IMediator _mediator;
         // public ActivitiesController(IMediator mediator)
         // {
