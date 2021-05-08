@@ -6,7 +6,9 @@ using _API.Extensions;
 using _API.Middleware;
 using Application.Activities;
 using Application.Core;
+using Application.Interfaces;
 using FluentValidation.AspNetCore;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -56,6 +58,7 @@ namespace _API
             });
             services.AddApplicationServices(_config);
             services.AddIdentityServices(_config);
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
